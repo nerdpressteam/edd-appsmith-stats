@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT site_name\nFROM wp_edd_license_activations\nWHERE license_id = {{ ChartTopUsedLicenses.selectedDataPoint.x }}\nORDER BY site_name ASC;",
+      "body": "SELECT site_name\nFROM dp_edd_license_activations\nWHERE license_id = {{ ChartTopUsedLicenses.selectedDataPoint.x }}\nORDER BY site_name ASC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

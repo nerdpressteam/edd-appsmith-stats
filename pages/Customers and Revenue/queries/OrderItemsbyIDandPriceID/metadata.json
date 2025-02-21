@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT product_name, COUNT(*) AS count, SUM(total) AS total_sum\nFROM wp_edd_order_items\nWHERE date_created >= DATE_SUB(NOW(), INTERVAL 1 YEAR)\nGROUP BY product_id, price_id\nORDER BY count DESC;",
+      "body": "SELECT product_name, COUNT(*) AS count, SUM(total) AS total_sum\nFROM dp_edd_order_items\nWHERE date_created >= DATE_SUB(NOW(), INTERVAL 1 YEAR)\nGROUP BY product_id, price_id\nORDER BY count DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

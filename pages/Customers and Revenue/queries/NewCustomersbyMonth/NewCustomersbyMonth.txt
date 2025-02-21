@@ -2,7 +2,7 @@ SELECT
   DATE_FORMAT(date_created, '%M %Y') AS x, 
   COUNT(*) AS y
 FROM 
-  wp_edd_customers
+  dp_edd_customers
 WHERE
 	date_created >= DATE_SUB(NOW(), INTERVAL 10 YEAR)
 GROUP BY 

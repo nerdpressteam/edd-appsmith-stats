@@ -20,7 +20,7 @@ FROM (
     UNION SELECT 20 UNION SELECT 21 UNION SELECT 22 UNION SELECT 23
   ) numbers -- This ensures we get a month in the output even if there are 0 results --
 ) m
-LEFT JOIN wp_edd_subscriptions s ON DATE_FORMAT(s.expiration, '%Y-%m') = m.month
+LEFT JOIN dp_edd_subscriptions s ON DATE_FORMAT(s.expiration, '%Y-%m') = m.month
   AND s.expiration > DATE_SUB(DATE_ADD(LAST_DAY(NOW()), INTERVAL 1 DAY), INTERVAL 2 YEAR)
   AND status = 'cancelled'
   AND notes NOT LIKE '%cancelled by gateway%'

@@ -10,7 +10,7 @@ SELECT
     END
   ), 2 ) AS mrr
 FROM
-  wp_edd_subscriptions AS s
+  dp_edd_subscriptions AS s
   JOIN (
     SELECT
       DATE_FORMAT(DATE_SUB(NOW(), INTERVAL n MONTH), '%Y-%m-01') AS first_day
@@ -25,7 +25,7 @@ WHERE
     SELECT
       1
     FROM
-      wp_edd_orders
+      dp_edd_orders
     WHERE
       ( parent = s.parent_payment_id OR id = s.parent_payment_id )
 			AND status = 'refunded'

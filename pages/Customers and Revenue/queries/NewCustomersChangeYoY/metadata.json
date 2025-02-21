@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  x,\n\t( z / LAG(z) OVER (ORDER BY x) - 1 ) * 100 as y,\n\tz\nFROM (\n  SELECT \n    DATE_FORMAT(date_created, '%M %Y') AS x, \n    COUNT(*) AS z\n  FROM \n    wp_edd_customers\n\tWHERE date_created > '1970-01-01'\n  GROUP BY \n    DATE_FORMAT(date_created, '%M %Y')\n) subq\nORDER BY \n  STR_TO_DATE(x, '%M %Y');",
+      "body": "SELECT \n  x,\n\t( z / LAG(z) OVER (ORDER BY x) - 1 ) * 100 as y,\n\tz\nFROM (\n  SELECT \n    DATE_FORMAT(date_created, '%M %Y') AS x, \n    COUNT(*) AS z\n  FROM \n    dp_edd_customers\n\tWHERE date_created > '1970-01-01'\n  GROUP BY \n    DATE_FORMAT(date_created, '%M %Y')\n) subq\nORDER BY \n  STR_TO_DATE(x, '%M %Y');",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

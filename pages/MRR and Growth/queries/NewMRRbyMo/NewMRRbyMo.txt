@@ -8,7 +8,7 @@ WHERE s.created > DATE_SUB(DATE_ADD(LAST_DAY(NOW()), INTERVAL 1 DAY), INTERVAL 2
 AND s.status != 'pending'
 AND NOT EXISTS (
   SELECT 1
-  FROM wp_edd_orders o
+  FROM dp_edd_orders o
   WHERE ( o.parent = s.parent_payment_id OR o.id = s.parent_payment_id )
   AND o.status = 'refunded'
 )

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT\n  DATE_FORMAT(s.created, '%Y-%m') AS month,\n  COUNT(DISTINCT s.id) AS subscriptions,\n  ROUND(SUM(s.initial_amount / 12), 2) AS mrr\n\t-- GROUP_CONCAT(DISTINCT s.id SEPARATOR ',') as subscription_ids\nFROM wp_edd_subscriptions s\nWHERE s.created > DATE_SUB(DATE_ADD(LAST_DAY(NOW()), INTERVAL 1 DAY), INTERVAL 2 YEAR)\nAND s.status != 'pending'\nAND NOT EXISTS (\n  SELECT 1\n  FROM wp_edd_orders o\n  WHERE ( o.parent = s.parent_payment_id OR o.id = s.parent_payment_id )\n  AND o.status = 'refunded'\n)\nGROUP BY month;",
+      "body": "SELECT\n  DATE_FORMAT(s.created, '%Y-%m') AS month,\n  COUNT(DISTINCT s.id) AS subscriptions,\n  ROUND(SUM(s.initial_amount / 12), 2) AS mrr\n\t-- GROUP_CONCAT(DISTINCT s.id SEPARATOR ',') as subscription_ids\nFROM wp_edd_subscriptions s\nWHERE s.created > DATE_SUB(DATE_ADD(LAST_DAY(NOW()), INTERVAL 1 DAY), INTERVAL 2 YEAR)\nAND s.status != 'pending'\nAND NOT EXISTS (\n  SELECT 1\n  FROM dp_edd_orders o\n  WHERE ( o.parent = s.parent_payment_id OR o.id = s.parent_payment_id )\n  AND o.status = 'refunded'\n)\nGROUP BY month;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
