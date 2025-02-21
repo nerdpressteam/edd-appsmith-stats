@@ -7,7 +7,7 @@ SELECT
     SUM(CASE WHEN integrations LIKE '%\"thrive-leads\"%' THEN 1 ELSE 0 END) AS "Thrive Architect",
     SUM(CASE WHEN integrations LIKE '%\"wpbakery\"%' THEN 1 ELSE 0 END) AS "WPBakery",
 		SUM(CASE WHEN integrations LIKE '%\"oxygen\"%' THEN 1 ELSE 0 END) AS "Oxygen"
-FROM wp_wpf_all_sites
+FROM dp_wpf_all_sites
 WHERE crm NOT IN ('', '0')
     AND check_date >= DATE_SUB(NOW(), INTERVAL 1 YEAR)
     AND integrations != 'a:0:{}'

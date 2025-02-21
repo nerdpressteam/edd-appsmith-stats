@@ -10,7 +10,7 @@ SELECT
 		SUM(CASE WHEN integrations LIKE '%\"courseware\"%' THEN 1 ELSE 0 END) AS "WP Courseware",
 		SUM(CASE WHEN integrations LIKE '%\"masterstudy\"%' THEN 1 ELSE 0 END) AS "MasterStudy",
 		SUM(CASE WHEN integrations LIKE '%\"fluent-community\"%' THEN 1 ELSE 0 END) AS "FluentCommunity"
-FROM wp_wpf_all_sites
+FROM dp_wpf_all_sites
 WHERE crm NOT IN ('', '0')
     AND check_date >= DATE_SUB(NOW(), INTERVAL 1 YEAR)
     AND integrations != 'a:0:{}'

@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  DATE_FORMAT(expiration, '%M %Y') AS x, \n  COUNT(*) AS y\nFROM \n  wp_edd_subscriptions\nWHERE\n\texpiration >= DATE_SUB(NOW(), INTERVAL 4 YEAR)\n\tAND expiration <= NOW()\n\tAND status IN ( 'cancelled', 'failing' )\nGROUP BY \n  MONTH(expiration), \n  YEAR(expiration)\nORDER BY \n  MIN(expiration)",
+      "body": "SELECT \n  DATE_FORMAT(expiration, '%M %Y') AS x, \n  COUNT(*) AS y\nFROM \n  dp_edd_subscriptions\nWHERE\n\texpiration >= DATE_SUB(NOW(), INTERVAL 4 YEAR)\n\tAND expiration <= NOW()\n\tAND status IN ( 'cancelled', 'failing' )\nGROUP BY \n  MONTH(expiration), \n  YEAR(expiration)\nORDER BY \n  MIN(expiration)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

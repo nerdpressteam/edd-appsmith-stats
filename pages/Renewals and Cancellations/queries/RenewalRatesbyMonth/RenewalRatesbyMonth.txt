@@ -10,8 +10,8 @@ FROM (
   		AND o.date_created <= DATE_ADD(c.date_created, INTERVAL 13 MONTH)
       THEN o.customer_id END) / COUNT(DISTINCT c.id) AS renewal_rate
   FROM
-    wp_edd_customers c
-    LEFT JOIN wp_edd_orders o ON c.id = o.customer_id
+    dp_edd_customers c
+    LEFT JOIN dp_edd_orders o ON c.id = o.customer_id
   WHERE
     c.date_created >= '2017-01-01'
     AND c.date_created <= DATE_SUB(NOW(), INTERVAL 1 YEAR )

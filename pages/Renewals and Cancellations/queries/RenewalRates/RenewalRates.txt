@@ -3,8 +3,8 @@ SELECT
   COUNT(DISTINCT c.id) AS total_customers,
   SUM(CASE WHEN o.id IS NOT NULL THEN 1 ELSE 0 END) AS renewal_customers,
   SUM(CASE WHEN o.id IS NOT NULL THEN 1 ELSE 0 END) / COUNT(DISTINCT c.id) * 100 AS renewal_rate
-FROM wp_edd_customers c
-LEFT JOIN wp_edd_orders o 
+FROM dp_edd_customers c
+LEFT JOIN dp_edd_orders o 
   ON c.id = o.customer_id 
   AND o.date_created >= DATE_ADD(c.date_created, INTERVAL 1 YEAR)
   AND o.date_created <= DATE_ADD(c.date_created, INTERVAL 13 MONTH)

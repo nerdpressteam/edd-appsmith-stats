@@ -14,7 +14,7 @@ FROM (
     END AS crm_group,
     COUNT(site_id) AS site_count,
     RANK() OVER (ORDER BY COUNT(site_id) DESC) AS crm_group_rank
-  FROM wp_wpf_all_sites 
+  FROM dp_wpf_all_sites 
   WHERE check_date >= DATE_SUB(NOW(), INTERVAL 1 YEAR) 
   AND crm NOT IN ('', '0', 'Høyre CRM', 'Spreadmind E-Mail Marketing', 'CRM App', 'Finansforbundet CRM')
   GROUP BY crm_group

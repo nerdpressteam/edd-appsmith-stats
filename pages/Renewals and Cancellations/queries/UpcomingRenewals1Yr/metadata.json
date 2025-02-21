@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT SUM(recurring_amount) as total_recurring_amount \nFROM wp_edd_subscriptions \nWHERE status = 'active' AND expiration BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 YEAR)",
+      "body": "SELECT SUM(recurring_amount) as total_recurring_amount \nFROM dp_edd_subscriptions \nWHERE status = 'active' AND expiration BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 YEAR)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

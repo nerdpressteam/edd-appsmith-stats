@@ -10,7 +10,7 @@ SELECT
 		SUM(CASE WHEN integrations LIKE '%\"pmpro\"%' AND integrations NOT LIKE '%\"woocommerce\"%' THEN 1 ELSE 0 END) AS "Paid Memberships Pro",
 		SUM(CASE WHEN integrations LIKE '%\"lifterlms\"%' AND integrations NOT LIKE '%\"woocommerce\"%' THEN 1 ELSE 0 END) AS "LifterLMS"
 
-FROM wp_wpf_all_sites
+FROM dp_wpf_all_sites
 WHERE crm NOT IN ('', '0')
     AND check_date >= DATE_SUB(NOW(), INTERVAL 1 YEAR)
     AND integrations != 'a:0:{}'

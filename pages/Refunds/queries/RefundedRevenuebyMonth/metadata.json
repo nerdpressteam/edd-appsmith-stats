@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  DATE_FORMAT(date_created, '%M %Y') AS x, \n  SUM(total) AS y\nFROM \n  wp_edd_orders\nWHERE\n\tdate_created >= DATE_SUB(NOW(), INTERVAL 4 YEAR) AND status = 'refunded'\nGROUP BY \n  MONTH(date_created), \n  YEAR(date_created)\nORDER BY \n  MIN(date_created)",
+      "body": "SELECT \n  DATE_FORMAT(date_created, '%M %Y') AS x, \n  SUM(total) AS y\nFROM \n  dp_edd_orders\nWHERE\n\tdate_created >= DATE_SUB(NOW(), INTERVAL 4 YEAR) AND status = 'refunded'\nGROUP BY \n  MONTH(date_created), \n  YEAR(date_created)\nORDER BY \n  MIN(date_created)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

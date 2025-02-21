@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT status,\nCOUNT(site_id) * 100.0 / (SELECT COUNT(site_id) FROM wp_wpf_all_sites WHERE check_date >= DATE_SUB(NOW(), INTERVAL 1 MONTH) AND crm NOT IN ('', '0')) as percentage\nFROM wp_wpf_all_sites\nWHERE check_date >= DATE_SUB(NOW(), INTERVAL 1 MONTH)\nAND crm NOT IN ('', '0')\nGROUP BY status\nORDER BY percentage DESC;",
+      "body": "SELECT status,\nCOUNT(site_id) * 100.0 / (SELECT COUNT(site_id) FROM dp_wpf_all_sites WHERE check_date >= DATE_SUB(NOW(), INTERVAL 1 MONTH) AND crm NOT IN ('', '0')) as percentage\nFROM dp_wpf_all_sites\nWHERE check_date >= DATE_SUB(NOW(), INTERVAL 1 MONTH)\nAND crm NOT IN ('', '0')\nGROUP BY status\nORDER BY percentage DESC;",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [

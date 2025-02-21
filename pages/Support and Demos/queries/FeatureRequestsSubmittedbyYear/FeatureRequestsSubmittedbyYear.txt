@@ -11,11 +11,11 @@ SELECT
         AND YEAR(inner_wp_posts.post_modified) < YEAR(CURDATE())
     ) AS completed_posts
 FROM 
-    wp_posts
+    dp_posts
 JOIN 
-    wp_postmeta pm ON wp_posts.ID = pm.post_id
+    dp_postmeta pm ON wp_posts.ID = pm.post_id
 WHERE 
-    wp_posts.post_type = 'cpt_feature_requests'
+    dp_posts.post_type = 'cpt_feature_requests'
     AND pm.meta_key = 'sfr_status'
     AND pm.meta_value != 'declined'
     AND YEAR(wp_posts.post_date) < YEAR(CURDATE())

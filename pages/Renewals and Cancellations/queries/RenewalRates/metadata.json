@@ -5,7 +5,7 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n  YEAR(c.date_created) AS year, \n  COUNT(DISTINCT c.id) AS total_customers,\n  SUM(CASE WHEN o.id IS NOT NULL THEN 1 ELSE 0 END) AS renewal_customers,\n  SUM(CASE WHEN o.id IS NOT NULL THEN 1 ELSE 0 END) / COUNT(DISTINCT c.id) * 100 AS renewal_rate\nFROM wp_edd_customers c\nLEFT JOIN wp_edd_orders o \n  ON c.id = o.customer_id \n  AND o.date_created >= DATE_ADD(c.date_created, INTERVAL 1 YEAR)\n  AND o.date_created <= DATE_ADD(c.date_created, INTERVAL 13 MONTH)\nWHERE c.purchase_value > 0\n\tAND NOT (c.purchase_count = 1 AND c.purchase_value >= 847)\n\tAND YEAR(c.date_created) <= YEAR(DATE_SUB(NOW(), INTERVAL 2 YEAR))\nGROUP BY YEAR(c.date_created)",
+      "body": "SELECT \n  YEAR(c.date_created) AS year, \n  COUNT(DISTINCT c.id) AS total_customers,\n  SUM(CASE WHEN o.id IS NOT NULL THEN 1 ELSE 0 END) AS renewal_customers,\n  SUM(CASE WHEN o.id IS NOT NULL THEN 1 ELSE 0 END) / COUNT(DISTINCT c.id) * 100 AS renewal_rate\nFROM dp_edd_customers c\nLEFT JOIN dp_edd_orders o \n  ON c.id = o.customer_id \n  AND o.date_created >= DATE_ADD(c.date_created, INTERVAL 1 YEAR)\n  AND o.date_created <= DATE_ADD(c.date_created, INTERVAL 13 MONTH)\nWHERE c.purchase_value > 0\n\tAND NOT (c.purchase_count = 1 AND c.purchase_value >= 847)\n\tAND YEAR(c.date_created) <= YEAR(DATE_SUB(NOW(), INTERVAL 2 YEAR))\nGROUP BY YEAR(c.date_created)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
